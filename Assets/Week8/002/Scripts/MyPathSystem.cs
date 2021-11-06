@@ -81,20 +81,20 @@ public class MyPathSystem : MonoBehaviour
                 {
                     currentPosition = new Vector2(currentPosition.x + cellSize, currentPosition.y);
                     secondPosition = new Vector2(currentPosition.x, currentPosition.y + cellSize);
-                    Debug.Log("second position");
+                  //  Debug.Log("second position");
                     secondPos = true;
                 }
 
                 else if (n > 60 && n < 79)
                 {
                     currentPosition = new Vector2(currentPosition.x, currentPosition.y + cellSize);
-                    Debug.Log("up");
+                   // Debug.Log("up");
                 }
 
                 else
                 {
                     currentPosition = new Vector2(currentPosition.x + cellSize, currentPosition.y);
-                    Debug.Log("right");
+                  //  Debug.Log("right");
                 }
             }
 
