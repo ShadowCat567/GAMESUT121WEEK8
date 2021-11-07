@@ -24,12 +24,14 @@ public class MyPathSystem : MonoBehaviour
     public GameObject barrierRightPrefab;
     public GameObject barrierOpen;
     public GameObject trapSquarePrefab;
+    public GameObject chaosGatePrefab;
 
     public List<GameObject> trapList = new List<GameObject>();
     int maxTraps = 5;
 
     bool secondPos = false;
     bool endBox = false;
+    bool chaosGate = false;
 
     void SetSeed() 
     {
@@ -116,6 +118,16 @@ public class MyPathSystem : MonoBehaviour
                 //Debug.Log(traps.GetComponent<SpriteRenderer>().bounds.size.x.ToString());
             }
 
+            if(n > 40 && n < 60 && chaosGate == false)
+            {
+                int gateWidth = 3;
+                int gateX = random.Next((int)currentPosition.x - (int)cellSize / 2 + gateWidth, (int)currentPosition.x + (int)cellSize / 2 - gateWidth);
+                int gateY = random.Next((int)currentPosition.y - (int)cellSize / 2 + gateWidth, (int)currentPosition.y + (int)cellSize / 2 - gateWidth);
+
+                GameObject gate = Instantiate(chaosGatePrefab, new Vector3(gateX, gateY), Quaternion.identity);
+                chaosGate = true;
+            }
+
             gridCellList.Add(new GridCell(currentPosition));
 
             GameObject openBarrier = Instantiate(barrierOpen, new Vector3(newX, newY), Quaternion.identity);
@@ -181,7 +193,6 @@ public class MyPathSystem : MonoBehaviour
             yield return null;
         }
     }
-
 
     private void OnDrawGizmos() 
     {
