@@ -23,6 +23,10 @@ public class MyPathSystem : MonoBehaviour
     public GameObject barrierTopPrefab;
     public GameObject barrierRightPrefab;
     public GameObject barrierOpen;
+    public GameObject trapSquarePrefab;
+
+    public List<GameObject> trapList = new List<GameObject>();
+    int maxTraps = 5;
 
     bool secondPos = false;
     bool endBox = false;
@@ -81,20 +85,17 @@ public class MyPathSystem : MonoBehaviour
                 {
                     currentPosition = new Vector2(currentPosition.x + cellSize, currentPosition.y);
                     secondPosition = new Vector2(currentPosition.x, currentPosition.y + cellSize);
-                  //  Debug.Log("second position");
                     secondPos = true;
                 }
 
                 else if (n > 60 && n < 79)
                 {
                     currentPosition = new Vector2(currentPosition.x, currentPosition.y + cellSize);
-                   // Debug.Log("up");
                 }
 
                 else
                 {
                     currentPosition = new Vector2(currentPosition.x + cellSize, currentPosition.y);
-                  //  Debug.Log("right");
                 }
             }
 
@@ -102,6 +103,18 @@ public class MyPathSystem : MonoBehaviour
             float secY = secondPosition.y;
             float newX = currentPosition.x + cellSize / 2;
             float newY = currentPosition.y;
+
+            int trapNum = random.Next(0, maxTraps);
+
+            for (int j = 0; j < trapNum; j++)
+            {
+                int trapWidth = 3;
+                int trapX = random.Next((int)currentPosition.x - (int)cellSize/2 + trapWidth, (int)currentPosition.x + (int)cellSize / 2 - trapWidth);
+                int trapY = random.Next((int)currentPosition.y - (int)cellSize / 2 + trapWidth, (int)currentPosition.y + (int)cellSize / 2 - trapWidth);
+
+                GameObject traps = Instantiate(trapSquarePrefab, new Vector3(trapX, trapY), Quaternion.identity);
+                //Debug.Log(traps.GetComponent<SpriteRenderer>().bounds.size.x.ToString());
+            }
 
             gridCellList.Add(new GridCell(currentPosition));
 
@@ -180,10 +193,4 @@ public class MyPathSystem : MonoBehaviour
             Gizmos.DrawCube(gridCellList[i].location, Vector2.one * cellSize);
         }
     }
-
-    private void Update() 
-    {
-        
-    }
-
 }

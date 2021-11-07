@@ -528,6 +528,8 @@ MonoBehaviour:
   barrierTopPrefab: {fileID: 1588853686239593050, guid: 06ad96f13de1d1f41aac80c468150b0d, type: 3}
   barrierRightPrefab: {fileID: 299521555681743769, guid: 0ee802368fb3c824d9e71eba128d3ec7, type: 3}
   barrierOpen: {fileID: 5017742655562011857, guid: cdefe87f69f8f014e91974d1396855dd, type: 3}
+  trapSquarePrefab: {fileID: 7572534886891782986, guid: 0faa34ea8e2e5b14cb99e1fe510978c4, type: 3}
+  trapList: []
 --- !u!4 &2049197739
 Transform:
   m_ObjectHideFlags: 0
