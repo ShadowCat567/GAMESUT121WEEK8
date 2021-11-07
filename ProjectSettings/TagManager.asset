@@ -8,6 +8,10 @@ TagManager:
   - ClickButton
   - GridSystem
   - Door
+  - DoorLeft
+  - DoorRight
+  - DoorTop
+  - DoorBottom
   layers:
   - Default
   - TransparentFX

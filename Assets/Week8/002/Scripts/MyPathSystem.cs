@@ -98,8 +98,6 @@ public class MyPathSystem : MonoBehaviour
                 }
             }
 
-       //     float currX = currentPosition.x + cellSize / 2;
-       //     float currY = currentPosition.y;
             float secX = secondPosition.x + cellSize / 2;
             float secY = secondPosition.y;
             float newX = currentPosition.x + cellSize / 2;
@@ -185,19 +183,7 @@ public class MyPathSystem : MonoBehaviour
 
     private void Update() 
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            SetSeed();
-            if (animatedPath) 
-            {
-                StartCoroutine(CreatePathRoutine());
-            }
-
-            else
-                CreatePath();
-        }
-        */
+        
     }
 
 }
