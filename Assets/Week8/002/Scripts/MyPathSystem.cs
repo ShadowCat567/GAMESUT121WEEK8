@@ -106,16 +106,71 @@ public class MyPathSystem : MonoBehaviour
             float newX = currentPosition.x + cellSize / 2;
             float newY = currentPosition.y;
 
-            int trapNum = random.Next(0, maxTraps);
+            int trapWidth = 3;
 
-            for (int j = 0; j < trapNum; j++)
+            if (n > 0 && n < 19)               
             {
-                int trapWidth = 3;
-                int trapX = random.Next((int)currentPosition.x - (int)cellSize/2 + trapWidth, (int)currentPosition.x + (int)cellSize / 2 - trapWidth);
-                int trapY = random.Next((int)currentPosition.y - (int)cellSize / 2 + trapWidth, (int)currentPosition.y + (int)cellSize / 2 - trapWidth);
+                int trapX = (int)currentPosition.x - (int)cellSize / 2 + trapWidth;
+                int trap1Y = (int)currentPosition.y + (int)cellSize / 2 - trapWidth;
+                int trap2Y = (int)currentPosition.y - (int)cellSize / 2 + trapWidth;
 
-                GameObject traps = Instantiate(trapSquarePrefab, new Vector3(trapX, trapY), Quaternion.identity);
-                //Debug.Log(traps.GetComponent<SpriteRenderer>().bounds.size.x.ToString());
+                GameObject trap1 = Instantiate(trapSquarePrefab, new Vector3(trapX, trap1Y), Quaternion.identity);
+                GameObject trap2 = Instantiate(trapSquarePrefab, new Vector3(trapX, trap2Y), Quaternion.identity);
+            }
+
+            else if(n > 20 && n < 29)
+            {
+                int trap1X = (int)currentPosition.x - (int)cellSize / 2 + trapWidth;
+                int trap2X = (int)currentPosition.x - trapWidth;
+                int trap3X = (int)currentPosition.x + trapWidth;
+                int trap4X = (int)currentPosition.x + (int)cellSize / 2 - trapWidth;
+                int trap1Y = (int)currentPosition.y;
+                int trap2Y = (int)currentPosition.y - (int)cellSize / 2 + trapWidth;
+
+                GameObject trap1 = Instantiate(trapSquarePrefab, new Vector3(trap1X, trap2Y), Quaternion.identity);
+                GameObject trap2 = Instantiate(trapSquarePrefab, new Vector3(trap4X, trap2Y), Quaternion.identity);
+                GameObject trap3 = Instantiate(trapSquarePrefab, new Vector3(trap2X, trap1Y), Quaternion.identity);
+                GameObject trap4 = Instantiate(trapSquarePrefab, new Vector3(trap3X, trap1Y), Quaternion.identity);
+            }
+
+            else if(n > 60 && n > 69)
+            {
+                int trap1X = (int)currentPosition.x - (int)cellSize / 2 + trapWidth;
+                int trap2X = (int)currentPosition.x;
+                int trap3X = (int)currentPosition.x + (int)cellSize / 2 - trapWidth;
+                int trap1Y = (int)currentPosition.y - (int)cellSize / 2 + trapWidth;
+                int trap2Y = (int)currentPosition.y;
+                int trap3Y = (int)currentPosition.y + (int)cellSize / 2 - trapWidth;
+
+                GameObject trap1 = Instantiate(trapSquarePrefab, new Vector3(trap1X, trap1Y), Quaternion.identity);
+                GameObject trap2 = Instantiate(trapSquarePrefab, new Vector3(trap1X, trap3Y), Quaternion.identity);
+                GameObject trap3 = Instantiate(trapSquarePrefab, new Vector3(trap2X, trap2Y), Quaternion.identity);
+                GameObject trap4 = Instantiate(trapSquarePrefab, new Vector3(trap3X, trap1Y), Quaternion.identity);
+                GameObject trap5 = Instantiate(trapSquarePrefab, new Vector3(trap3X, trap3Y), Quaternion.identity);
+            }
+
+            else if(n > 80 && n < 89)
+            {
+                int trapX = (int)currentPosition.x;
+                int trapY = (int)currentPosition.y;
+
+                GameObject trap = Instantiate(trapSquarePrefab, new Vector3(trapX, trapY), Quaternion.identity);
+            }
+
+            else if(n > 90 && n < 95)
+            {
+                int trap1X = (int)currentPosition.x - (int)cellSize / 2 + trapWidth;
+                int trap2X = (int)currentPosition.x;
+                int trap3X = (int)currentPosition.x + (int)cellSize / 2 - trapWidth;
+                int trap1Y = (int)currentPosition.y - (int)cellSize / 2 + trapWidth;
+                int trap2Y = (int)currentPosition.y + (int)cellSize / 2 - trapWidth;
+
+                GameObject trap1 = Instantiate(trapSquarePrefab, new Vector3(trap1X, trap1Y), Quaternion.identity);
+                GameObject trap2 = Instantiate(trapSquarePrefab, new Vector3(trap2X, trap1Y), Quaternion.identity);
+                GameObject trap3 = Instantiate(trapSquarePrefab, new Vector3(trap3X, trap1Y), Quaternion.identity);
+                GameObject trap4 = Instantiate(trapSquarePrefab, new Vector3(trap1X, trap2Y), Quaternion.identity);
+                GameObject trap5 = Instantiate(trapSquarePrefab, new Vector3(trap2X, trap2Y), Quaternion.identity);
+                GameObject trap6 = Instantiate(trapSquarePrefab, new Vector3(trap3X, trap2Y), Quaternion.identity);
             }
 
             if(n > 40 && n < 60 && chaosGate == false)
